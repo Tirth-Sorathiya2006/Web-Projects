@@ -1,0 +1,171 @@
+<!-- ====>This project is use to measure the  Body Mass Index(BMI) by accepting the height in cm and weight in Kg. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project3 - BMI - calculator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main{
+            border: 2px solid black;
+            padding: 2vw;
+        }
+
+        main h1 {
+            text-align: center;
+            margin-bottom: 2vw;
+        }
+
+        .mainForm {
+            text-align: center;
+        }
+
+        main form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2vw;
+        }
+
+        main form input {
+            margin-bottom: 1vw;
+            padding: 0.5vw;
+        }
+
+        main form button {
+            padding: 0.5vw;
+            border: 1px solid black;
+            background-color: lightgreen;
+            font-weight: 700;
+        }
+
+        .noticeContainer h2 {
+            text-align: center;
+            margin-bottom: 1vw;
+            margin-top: 1vw;
+        }
+
+        .noticeContainer ul li {
+            list-style: none;
+            text-align: center;
+        }
+
+        @media (width < 700px) {
+            main{
+            padding: 3vh;
+        }
+
+            main h1 {
+                margin-bottom: 3vh;
+            }
+
+            main form input {
+                margin-bottom: 3vh;
+                padding: 1vh;
+            }
+
+            main form button {
+                padding: 1vh;
+            }
+
+            .noticeContainer h2 {
+                margin-bottom: 1.5vh;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- ====>This is representing the title of the project -->
+        <h1>BMI calculator</h1>
+
+        <div class="mainForm">
+            <!-- ====>This is provide the input fields for the height and weight -->
+            <form action="">
+                <input type="text" required id="height" placeholder="Enter Height In cm...">
+                <input type="text" required id="weight" placeholder="Enter Weight In Kg...">
+                <button type="submit">Calculate</button>
+            </form>
+
+            <!-- ====>It is use to show the warning if any present -->
+            <div class="warning"></div>
+
+            <!-- ====>It is use for the show result of BMI -->
+            <div class="result"></div>
+
+            <!-- ====> It is show the notice to the user -->
+            <div class="notice"></div>
+        </div>
+
+        <!-- ====>Notice container for the user -->
+        <div class="noticeContainer">
+            <h2>## Notice ##</h2>
+            <ul>
+                <li>Underweight: BMI less then 18.50.</li>
+                <li>Normal weight: BMI 18.50 to 24.90.</li>
+                <li>Overweight: BMI 25.00 to 29.90.</li>
+                <li>Obesity: BMI greater or equal 30.00.</li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        const form = document.querySelector('form');
+        const warningDiv = document.querySelector('.warning');
+        const resultDiv = document.querySelector('.result');
+        const noticeDiv = document.querySelector('.notice');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); //It is use to prevent the value of form in the document
+
+            const height = parseFloat((document.querySelector('#height')).value); //We get the float value of height.
+            const weight = parseFloat((document.querySelector('#weight')).value); //We get the float value of weight.
+
+            // ====> Validation for the height and weight
+            if (height <= 0 || isNaN(height)) {
+                warning('height');
+
+            } else if (weight <= 0 || isNaN(weight)) {
+                warning('weight');
+            } else {
+                calculateAndDisplayBMI(height, weight);
+            }
+        })
+
+        // ====>It function is generate the waerning message for the invalid inputs of height and weight and insert the message in warningDiv in HTML.
+        function warning(str) {
+            warningDiv.innerText = `Please enter valid ${str}!!!`;
+            warningDiv.style.color = 'red';
+            warningDiv.style.fontWeight = '700'
+        }
+
+        // ====> Thid function is calculating the BMI and display It.
+        function calculateAndDisplayBMI(height, weight) {
+            const BMI = (weight / ((height ** 2) / 10000)).toFixed(2);
+
+            //  ====> Representing the BMI in document
+            resultDiv.innerText = `BMI = ${BMI}`;
+            resultDiv.style.fontWeight = '700';
+        }
+    </script>
+</body>
+
+</html>
