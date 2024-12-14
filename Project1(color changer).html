@@ -1,0 +1,97 @@
+<!-- In this project we are making the page color changer when we click on the divs of diffrent colors. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project1 - color - changer</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main h1 {
+            text-align: center;
+            border-bottom: 2px solid black;
+            margin-bottom: 3.5vw;
+        }
+
+        .parent {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        main .box {
+            height: 8vw;
+            width: 8vw;
+            border: 2px solid black;
+            margin: 1vw;
+        }
+
+        .box1 {
+            background-color: salmon;
+        }
+
+        .box2 {
+            background-color: royalblue;
+        }
+
+        .box3 {
+            background-color: crimson;
+        }
+
+        .box4 {
+            background-color: lightgreen;
+        }
+
+        @media (width < 700px) {
+            main .box {
+                height: 10vh;
+                width: 10vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- ====>Heading for the Project -->
+        <h1>Click on buttons</h1>
+
+        <!-- ====>The parent div which is containing the four divs -->
+        <div class="parent">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+            <div class="box box4"></div>
+        </div>
+
+    </main>
+
+    <script>
+        const colorArr = ['salmon', 'royalblue','crimson', 'lightgreen']; //Array containing colors of div.
+        const divNodeList = document.querySelectorAll('.box'); //It is provide the node list of all the divs which class is box.
+
+        divNodeList.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                document.body.style.backgroundColor = colorArr[index];
+            });
+        });
+    </script>
+</body>
+
+</html>
