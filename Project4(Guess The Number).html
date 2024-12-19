@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project3 - Guess - the - number</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            border: 2px solid black;
+            padding: 2vw;
+        }
+
+        main h1 {
+            margin-bottom: 2vw;
+        }
+
+        main form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2vw;
+        }
+
+        main .note {
+            margin-top: 2vw;
+        }
+
+        main .guesses,
+        main .guessCount,
+        main .note {
+            text-align: center;
+        }
+
+        form input {
+            margin-bottom: 1vw;
+            padding: 0.5vw;
+        }
+
+        form button {
+            padding: 0.5vw;
+            background-color: lightgreen;
+            border: 1px solid black;
+            font-weight: 700;
+        }
+
+        .note h2 {
+            margin-bottom: 0.5vw;
+        }
+
+        .note ul {
+            list-style: none;
+        }
+
+        main .result {
+            margin-top: 2vw;
+        }
+
+        @media (max-width: 700px) {
+            main {
+                padding: 2vh;
+                text-align: center;
+            }
+
+
+            main h1 {
+                margin-bottom: 4vh;
+            }
+
+            main form {
+                margin-bottom: 2vh;
+            }
+
+            main .note {
+                margin-top: 2vh;
+            }
+
+            form input {
+                margin-bottom: 2vh;
+                padding: 0.8vh;
+            }
+
+            form button {
+                padding: 0.8vh;
+            }
+
+            .note h2 {
+                margin-bottom: 0.8vh;
+            }
+
+            main .result {
+                margin-top: 2vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- ====> It is represent the heading of the project -->
+        <h1>Guess The Number</h1>
+
+        <!-- ====> Input field and submit button for the user entry -->
+        <div class="form">
+            <form action="">
+                <input type="text" required id="userValue" placeholder="Enter your guess...">
+                <button type="submit">Submit Your Guess</button>
+            </form>
+        </div>
+
+        <!-- ====> It is provide the warning for invalid input
+        <div class="warningDiv"></div> -->
+
+        <!-- ====>Record about the game -->
+        <!-- ====> guesses div is hold the previous guess -->
+        <div class="guesses">Previous Guesses = </div>
+        <!-- ====> guessCount is represent the Remaining number of guess for user -->
+        <div class="guessCount">Remaining Guesses = <span id="guessCountSpan">3</span></div>
+
+        <!-- ====> It is provide the wining or loosing massage -->
+        <div class="result"></div>
+
+        <div class="finalResult"></div>
+
+        <!-- ====> It is provide the note to the user -->
+        <div class="note">
+            <h2>## Note ##</h2>
+            <ul>
+                <li>You have 3 chance to guess the number.</li>
+                <li>Number is from 1 to 10.</li>
+                <li>Guess your number and submit it.</li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+
+        const randomNum = Math.floor((Math.random() * 10) + 1);
+        const form = document.querySelector('form');
+        const warningDiv = document.createElement('div');
+        const previousGuess = [];
+        const previousGuessDiv = document.querySelector('.guesses');
+        let guessCount = 3;
+        const guessCountSpan = document.querySelector('#guessCountSpan');
+        const resultDiv = document.querySelector('.result');
+        const submitButton = document.querySelector('button');
+        const finalResultDiv = document.querySelector('.finalResult');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); //It is prevent the data in document
+
+            const userInput = parseInt((document.querySelector('#userValue').value));
+
+            if (userInput < 1 || userInput > 10 || isNaN(userInput)) {
+                warningDiv.innerText = `Enter valid Input!!!`;
+                warningDiv.style.color = 'red';
+                warningDiv.style.fontWeight = '700';
+                document.querySelector('.form').appendChild(warningDiv);
+            } else {
+                warningDiv.remove(); //If user enter the valid input then we can remove the warning div
+                previousGuess.push(userInput);
+
+                const span = document.createElement('span');
+                span.innerText = `${userInput}  `;
+                previousGuessDiv.appendChild(span);
+
+                guessCount--;
+                guessCountSpan.innerText = `${guessCount}`;
+
+                if (userInput === randomNum) {
+                    guessCount = 0;
+                    
+                    resultDiv.innerHTML = `Congratulations!!! <br> You Win!!!`;
+                    resultDiv.style.color = 'green';
+                    resultDiv.style.fontWeight = '700';
+
+                    submitButton.remove();
+                    restart();
+                } else {
+                    if (guessCount === 0) {
+                        resultDiv.innerHTML = `You Fool!!! <br> You Are a Loser!!!`;
+                        resultDiv.style.color = 'red';
+                        resultDiv.style.fontWeight = '700';
+
+                        submitButton.remove();
+
+                        finalResultDiv.innerText = `Random number is ${randomNum}`;
+                        finalResultDiv.style.color = 'red';
+                        finalResultDiv.style.fontWeight = '700';
+
+                        restart();
+                    }
+                }
+            }
+        });
+
+        function restart(){
+            const restartDiv = document.createElement('div');
+                        restartDiv.innerText = `Game is restarting....`;
+                        restartDiv.style.fontSize = 'larger';
+                        restartDiv.style.fontWeight = '700';
+                        restartDiv.style.marginTop = '10px'
+
+                        document.querySelector('main').appendChild(restartDiv);
+
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2500);
+        }
+
+    </script>
+</body>
+
+</html>
