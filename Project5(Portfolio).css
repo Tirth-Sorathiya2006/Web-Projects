@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 33);
+    color: white;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+/* ====>Set up the navigation bar */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2vw;
+    background-color: rgb(18, 18, 62);
+
+}
+
+nav .left {
+    font-size: max(2vw, 1.5rem);
+    font-weight: 700;
+}
+
+nav .right a {
+    text-decoration: none;
+    color: white;
+    margin-right: 1.5vw;
+}
+
+nav .right a:hover {
+    color: rgb(153, 153, 226);
+    font-size: 1.02rem;
+}
+
+/* ====>Setup the first section */
+.firstSection {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.5vw 0;
+    padding: 2vw;
+}
+
+.firstSection .rightDiv {
+    width: 50%;
+
+}
+
+.rightDiv img {
+    width: 80%;
+}
+
+.firstSection .leftDiv {
+    width: 50%;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leftDiv h1 {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+}
+
+.leftDiv p {
+    font-size: 2vw;
+}
+
+.leftDiv span {
+    color: rgb(170, 107, 228);
+}
+
+/* ====> Set up the hr line */
+hr {
+    margin: 1vw;
+}
+
+/* ====> For about section */
+.aboutSection,
+.skillSection,
+.projectSection,
+.contectMeSection {
+    padding: 2vw;
+    margin-bottom: 2vw 0;
+}
+
+.aboutSection h1,
+.skillSection h1,
+.projectSection h1,
+.contectMeSection h1 {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+}
+
+.aboutSection ul{
+    margin-left: 4vw;
+}
+
+.aboutSection ul li{
+    margin-bottom: 0.5vw;
+}
+/* ====> Manage the skill section */
+.skillSection div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 1vw 0;
+}
+
+.skillSection .skills {
+    width: 250px;
+    height: 350px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1vw;
+}
+
+.skillSection .skills:hover,
+.projectSection .projectCard:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    transition-duration: 1s;
+    background-color: #3c1660;
+}
+
+.skillSection .skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skillSection .skills .skillCardLogo {
+    font-size: 3vw;
+}
+
+.skillSection .skills p {
+    font-size: 12px;
+}
+
+/* ====> For project Section */
+.project,
+.webProject {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.projectSection .projectCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 350px;
+    width: 250px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1vw;
+    margin: 2vw 0;
+    text-align: center;
+}
+
+.projectSection .projectCard h2 {
+    margin-bottom: 1vw;
+}
+
+.projectSection .projectCard p {
+    margin-bottom: 1vw;
+    font-size: 12px;
+}
+
+.projectSection .projectCard a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+
+/* =====> About contect details */
+.contectDetailsAboutMe {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.socialMedia .socialMediaIcons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.socialMedia a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    margin-right: 1.5vw;
+}
+
+.socialMedia a:hover {
+    font-size: 2.1rem;
+    text-decoration: none;
+    color: violet;
+}
+
+/* ====> For hamburgerMenu  */
+#hambargurMenuIcon{
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    /* ====> Designing the nav */
+    nav {
+        padding: 3vh;
+    }
+
+    nav .left {
+        font-size: max(3vh, 1.2rem);
+    }
+
+    /* ====> Designing the firstSection */
+    .firstSection {
+        flex-direction: column;
+        margin: 3vh 0;
+        padding: 3vh;
+    }
+
+    .firstSection .leftDiv,
+    .firstSection .rightDiv {
+        width: 100%;
+    }
+
+    .firstSection .leftDiv {
+        margin-right: none;
+        margin-bottom: 6vh;
+    }
+
+    .leftDiv h1 {
+        font-size: 4vh;
+        margin-bottom: 1vh;
+    }
+
+    .leftDiv p {
+        font-size: 3vh;
+    }
+
+    .leftDiv span {
+        color: rgb(170, 107, 228);
+    }
+
+    /* ====> Set up the hr line */
+    hr {
+        margin: 2vh;
+    }
+
+    /* ====> Set up the about section */
+    .aboutSection,
+    .skillSection,
+    .projectSection,
+    .contectMeSection {
+        padding: 4vh;
+
+    }
+
+    .aboutSection h1,
+    .skillSection h1,
+    .projectSection h1,
+    .contectMeSection h1 {
+        font-size: 5vh;
+        margin-bottom: 2vh;
+        text-align: center;
+    }
+
+    .aboutSection ul{
+        margin-left: 4vh;
+    }
+
+    .aboutSection ul li{
+        margin-bottom: 0.5vh;
+    }
+    
+    /* ====> Manage the skill section */
+    .skillSection div {
+        margin: 2vh 0;
+    }
+
+    .skillSection div .skills {
+        padding: 2vh;
+    }
+
+    .skillSection .skills .skillCardLogo {
+        font-size: 6vh;
+    }
+
+    .skillSection .skills p {
+        font-size: 12px;
+    }
+
+    /* ====> Set up the project section */
+    .projectSection .projectCard {
+        height: 350px;
+        width: 250px;
+        border: 1px solid white;
+        border-radius: 10px;
+        padding: 2vh;
+        margin: 2vh 0;
+    }
+
+    /* =====> About contect details */
+    .contectDetailsAboutMe {
+        flex-direction: column;
+    }
+
+    .socialMedia a {
+        margin-right: 2vh;
+    }
+
+    .mobileNumber,
+    .emailAddress,
+    .socialMedia {
+        margin-bottom: 3vh;
+    }
+
+    /* ====> For the hamburgerMenu */
+    .navButtons{
+        display: none;
+    }
+
+    #hambargurMenuIcon{
+        display: block;
+    }
+
+    #hambargurMenuIcon:hover{
+        cursor: pointer;
+    }
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        padding: 4vh;
+        background-color: rgba(75, 12, 135, 0.9);
+    }
+
+    .menu a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .menu a:hover{
+        text-decoration: none;
+        background-color: blueviolet;
+    }
+
+    .menu hr{
+        margin: 1vh 0;
+    }
+}
