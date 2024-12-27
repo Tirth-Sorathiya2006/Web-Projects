@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>About-Us-Krushiraj-Mini-Tractor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ====> Navigation bar design */
+        nav {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2vw;
+            background-color: #C62828;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: max(3vw, 40px);
+            font-weight: 800;
+        }
+
+        .navButtons i {
+            display: none;
+        }
+
+        .navButton {
+            position: relative;
+            margin: 1.5vw;
+            text-decoration: none;
+            color: white;
+            font-size: max(1.5vw, 20px);
+            font-weight: 700;
+        }
+
+        .navButton::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            background-color: white;
+        }
+
+        .navButton:hover::after {
+            animation-name: underLine;
+            animation-duration: 1s;
+        }
+
+        /* ====> Set the footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 5vw;
+        }
+
+        footer h1 {
+            margin-bottom: 2vw;
+            border-bottom: 1px solid white;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            font-size: 1.7vw;
+            padding: 0.2vw;
+        }
+
+        /* ====> Styling the main part of the webpage */
+        main {
+            padding: 2vw;
+        }
+
+        main h1 {
+            border-bottom: 1px solid gray;
+            margin-bottom: 2vw;
+        }
+
+        main h2 {
+            margin-bottom: 0.8vw;
+        }
+
+        .aboutKrushiraj {
+            margin-bottom: 2vw;
+        }
+
+        .whyUs p {
+            margin-bottom: 0.8vw;
+        }
+
+        .whyUs ul {
+            list-style: none;
+        }
+
+        /* ====> Animation for underline effect */
+        @keyframes underLine {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @media (width < 700px) {
+
+            /* ====> Design for navigation bar */
+            nav {
+                padding: 3vh;
+                font-size: max(3vh, 20px);
+            }
+
+            nav .logo {
+                font-size: max(4vh, 30px);
+            }
+
+            .navButton {
+                display: none;
+            }
+
+            .navButtons i {
+                display: block;
+                color: white;
+            }
+
+            /* ====> Setup the menu bar */
+            .menuBar {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                left: 0;
+                top: 80px;
+                width: 100%;
+                height: 100vh;
+                background-color: black;
+                color: white;
+            }
+
+            .menuBar a {
+                text-decoration: none;
+                text-align: center;
+                color: white;
+                margin: 2vh;
+                font-size: 5vh;
+                width: 100%;
+            }
+
+            .menuBar a:hover {
+                background-color: #C62828;
+                transition-duration: 1s;
+            }
+
+            /* ====> Set the footer */
+            footer {
+                flex-direction: column;
+            }
+
+            footer div {
+                margin-bottom: 2.5vh;
+            }
+
+            footer ul li {
+                font-size: 2.5vh;
+                padding: 0.5vh;
+            }
+
+            /* ====> Styling the main part of the webpage */
+            main {
+                padding: 2vh;
+            }
+
+            main h1 {
+                border-bottom: 1px solid gray;
+                margin-bottom: 3vh;
+            }
+
+            main h2 {
+                margin-bottom: 1vh;
+            }
+
+            .aboutKrushiraj {
+                margin-bottom: 3vh;
+            }
+
+            .whyUs p {
+                margin-bottom: 1vh;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo" style="text-align: center;">Krushiraj</div>
+        <div class="navButtons">
+            <a href="http://127.0.0.1:3000/Home.html" class="navButton">Home</a>
+            <a href="" class="navButton" class="productButton">Our Products</a>
+            <a href="http://127.0.0.1:3000/About Us.html" class="navButton">About Us</a>
+            <a href="http://127.0.0.1:3000/Contect Us.html" class="navButton">Contect Us</a>
+            <i class="fa-solid fa-bars" id="menu"></i>
+        </div>
+    </nav>
+
+    <main>
+        <h1>About Us</h1>
+
+        <div class="aboutKrushiraj">
+            <h2>Krushiraj-Mini-Tractor</h2>
+            <p>Established in the year <em><b>2010</b></em>, Krushiraj Tractor is a well-known Manufacturer of Tractor
+                Cultivators,
+                Tractor Disc Harrow and Tractor Trolley. Banking on our state-of-the-art infrastructure facility, we are
+                able to fabricate a flawless range of products. All our professionals are working in close tandem with
+                each other leading to a smooth functioning of the firm. Being a client oriented entity, our major focus
+                lies in understanding and fulfilling all their requirements. Hence, we are able to attain maximum
+                satisfaction of our clients.</p>
+            <p>Under the visionary leadership of our mentor, <em><b>Mr. Paresh Bhai Sorathiya </b></em>and <em><b>Mr.
+                        Rajesh Bhai Gondaliya</b></em> we
+                have been able to occupy a good position in the market. His continuous motivation, extreme guidance, and
+                outstanding managerial qualities allow us to gain the trust of a huge number of customers.</p>
+        </div>
+
+        <div class="whyUs">
+            <h2>Why Us?</h2>
+            <p>We believe that client satisfaction requires a top level of commitment to do the business. And we have
+                the required assets and support to conduct our business operations in the right way. Being an industry
+                leader, we are now capable to embrace all circumstances and deliver the most challenging product.
+            </p>
+            <ul>
+                <li>Rich industrial experience</li>
+                <li>Ethical business practices</li>
+                <li>Quality range</li>
+                <li>Experienced workforce</li>
+                <li>Competitive prices</li>
+                <li>Timely delivery of consignments</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="logoContent">
+            <div class="logoContainer">
+                <h1>Krushiraj</h1>
+            </div>
+            <div class="companyName">Krushiraj-Mini-Tractor have Copy-Right <em>©</em> Closet Now.</div>
+        </div>
+        <div class="aboutUs">
+            <h1>About Us</h1>
+            <ul>
+                <li>Mobile Number : 987XXXXXXX</li>
+                <li>Mobile Number : 987XXXXXXX</li>
+            </ul>
+        </div>
+        <div class="socialMedia">
+            <h1>Usefull Social Media Links</h1>
+            <ul>
+                <li><a href=""><i class="fa-brands fa-facebook" style="color: white;"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-instagram" style="color: white;"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-x-twitter" style="color: white;"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- ====> Setup the menu bar for small width devices -->
+    <div class="menuBar" style="display: none;">
+        <a href="http://127.0.0.1:3000/Home.html">Home</a>
+        <a href="" class="productPage">Our Products</a>
+        <a href="http://127.0.0.1:3000/About Us.html">About Us</a>
+        <a href="http://127.0.0.1:3000/Contect Us.html">Contect Us</a>
+        <a href="" id="close">X (Close Menu Bar)</a>
+    </div>
+
+    <script>
+        // ====> set up the open and close functionality of the menu bar
+        const menuBar = document.querySelector('.menuBar');
+        const menuIcon = document.querySelector('#menu');
+        const closeMenu = document.querySelector('#close');
+
+        menuIcon.addEventListener('click', () => {
+            if (menuBar.style.display === 'flex') {
+                menuBar.style.display = 'none';
+            } else {
+                menuBar.style.display = 'flex';
+            }
+        });
+
+        closeMenu.addEventListener('click', () => {
+            menuBar.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
